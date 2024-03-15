@@ -1,0 +1,8 @@
+.nav-link{
+    transition: all 0.5s ease;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color: black !important;
+}
