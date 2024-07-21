@@ -1,22 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import { BrowserRouter } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+// Define the initial state
+const initialState = {
+  searchField: ""
+};
+
+// Define the reducer
+const searchRobots = (state = initialState, action = {}) => {
+  switch (action.type) {
+    case "CHANGE_SEARCH_FIELD":
+      return {
+        ...state,
+        searchField: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+
+// Create the Redux store
+const store = createStore(searchRobots);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </Provider>
+  </BrowserRouter>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

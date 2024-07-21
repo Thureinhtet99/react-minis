@@ -1,5 +1,4 @@
 import { Link, Route, Routes } from "react-router-dom";
-import Robofriends from "./robofriends/Robofriend";
 import TodoList from "./todolist/TodoList";
 import "./maincontainer.css";
 import Shop from "./cocktails/Shop";
@@ -28,7 +27,7 @@ export default function MainContainer() {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-                  <li className="nav-item mx-2">
+                  {/* <li className="nav-item mx-2">
                     <Link
                       className="nav-link"
                       aria-current="page"
@@ -36,7 +35,7 @@ export default function MainContainer() {
                     >
                       Robofriends
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item mx-2">
                     <Link
                       className="nav-link"
@@ -71,8 +70,7 @@ export default function MainContainer() {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Robofriends />} />
-            <Route path="/robofriends" element={<Robofriends />} />
+            <Route path="/" element={<TodoList />} />
             <Route path="/todo-list" element={<TodoList />} />
             <Route path="/mini-shop" element={<Shop />} />
             <Route path="/pokemon" element={<Pokemon />} />

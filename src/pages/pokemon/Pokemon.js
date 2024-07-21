@@ -31,7 +31,6 @@ export default function Pokemon() {
           fetch(item.url)
             .then((res) => res.json())
             .then((json) => {
-              console.log(json);
               setPokemons((item) => [...item, json]);
             });
         });
@@ -110,9 +109,8 @@ export default function Pokemon() {
                   >
                     <button
                       type="button"
-                      className={`btn btn-sm text-capitalize py-0 px-2 mb-2 text-white ${
-                        index + 1 === selectedTypes ? "fw-bold" : ""
-                      } `}
+                      className={`btn btn-sm text-capitalize py-0 px-2 mb-2 text-white ${index + 1 === selectedTypes ? "fw-bold" : ""
+                        } `}
                       onClick={() => handleType(index + 1)}
                       style={{
                         backgroundColor: colours[type.name.toLowerCase()],
